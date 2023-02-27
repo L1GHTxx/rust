@@ -8,8 +8,7 @@ pub fn showPrime(n: u64) {
 	while i <= n {
 		if isPrime(i) { 
 			if isPrime(i - 2) || isPrime(i + 2) {
-				let s = i.to_string();
-				print!("{}, ", s.blue());
+				print!("{}, ", i.to_string().blue());
 			} else {
 				print!("{}, ", i);
 			}
