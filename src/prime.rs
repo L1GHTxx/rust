@@ -20,7 +20,7 @@ pub fn showPrime(n: u64) {
 }
 
 fn isPrime(n: u64) -> bool {
-	if n <= 2 { return false; }
+	if n < 2 { return false; }
 	if n <= 3 { return true; }
 	if n % 2 == 0 || n % 3 == 0 { return false; }
 
