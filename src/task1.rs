@@ -2,7 +2,7 @@
 
 use std::collections::HashMap;
 
-pub fn find_average(vec: Vec<i32>) -> f32 {
+pub fn find_average(vec:  &Vec<i32>) -> f32 {
 	if vec.len() == 0 {
 		println!("the length of the vector is zero");
 		return 0.0;
@@ -14,24 +14,26 @@ pub fn find_average(vec: Vec<i32>) -> f32 {
 	average
 }
 
-pub fn find_median(vec: &mut Vec<i32>) -> i32 {
+pub fn find_median(vec: &Vec<i32>) -> i32 {
 	if vec.len() == 0 {
 		println!("the length of the vector is zero");
 		return 0;
 	}
 
-	vec.sort();
-	let median: i32 = vec[vec.len() / 2];
+	let mut temp_vec = vec.clone();
+	temp_vec.sort();
+	//println!("{:?}", temp_vec);
+	let median: i32 = temp_vec[temp_vec.len() / 2];
 
 	median
 }
 
-pub fn find_mode_of_list(vec: Vec<i32>) -> i32 {
+pub fn find_mode_of_list(vec: &Vec<i32>) -> i32 {
 	let mut map = HashMap::new();
 	let len = vec.len() as usize;
 
-	for s in 0..len {
-		let i = map.entry(vec[s]).or_insert(0);
+	for i in 0..len {
+		let i = map.entry(vec[i]).or_insert(0);
 		*i += 1;
 	}
 
