@@ -1,6 +1,6 @@
 #![allow(dead_code)]
 
-pub fn piglatin(s: String) -> String {
+pub fn pig_latin(s: String) -> String {
 
 	let mut new_s = "".to_string();
 
