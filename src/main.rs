@@ -1,22 +1,20 @@
 #![allow(unused)]
 
-use prime::showPrime;
+use prime::show_prime;
 use company::company;
+use pig_latin::to_pig_latin;
 
 mod task1;
-mod piglatin;
+mod pig_latin;
 mod prime;
 mod company;
 
 fn main() {
-    //let mut vec = vec![1,2,2,2,2,2,24,45,5,5,6,6,6];
-	//task1::taks1(&mut vec);
-
-	// let mut s = "Oral Cumshot yeah that fits".to_string();
-	// s = piglatin::piglatin(s).to_string();
+	// let mut s = "some interensting string one two three".to_string();
+	// s = pig_latin::to_pig_latin(s).to_string();
 	// print!("{s}");
 
-	//showPrime(2000);
+	//show_prime(2000);
 
 	//company();
 }

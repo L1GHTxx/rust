@@ -7,7 +7,7 @@ pub fn show_prime(n: u64) {
 	while i <= n {
 		if is_prime(i) { 
 			if is_prime(i - 2) || is_prime(i + 2) {
-				print!("{}, ", i.to_string().blue());
+				print!("{}, ", i.to_string().blue().bold());
 			} else {
 				print!("{}, ", i);
 			}
