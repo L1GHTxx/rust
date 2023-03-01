@@ -8,10 +8,7 @@ pub fn find_average(vec:  &Vec<i32>) -> f32 {
 		return 0.0;
 	}
 
-	let sum: i32 = vec.iter().sum();
-	let average: f32 = sum as f32 / vec.len() as f32;
-	
-	average
+	vec.iter().sum::<i32>() as f32 / vec.len() as f32
 }
 
 pub fn find_median(vec: &Vec<i32>) -> i32 {
