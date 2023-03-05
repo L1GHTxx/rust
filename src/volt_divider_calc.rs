@@ -1,5 +1,7 @@
-pub fn volt_divider_calc() {
-    let res_e192 = vec![
+#![allow(non_snake_case)]
+
+pub fn volt_divider_calc(v_in: f32, v_out: f32) {
+    let mut E192 = vec![
         100, 101, 102, 104, 105, 106, 107, 109, 110, 111, 113, 114, 115, 117, 118, 120, 121, 123,
         124, 126, 127, 129, 130, 132, 133, 135, 137, 138, 140, 142, 143, 145, 147, 149, 150, 152,
         154, 156, 158, 160, 162, 164, 165, 167, 169, 172, 174, 176, 178, 180, 182, 184, 187, 189,
@@ -12,5 +14,30 @@ pub fn volt_divider_calc() {
         698, 706, 715, 723, 732, 741, 750, 759, 768, 777, 787, 796, 806, 816, 825, 835, 845, 856,
         866, 876, 887, 898, 909, 920, 931, 942, 953, 965, 976, 988];
 
-	
+	let mut new_elements = vec![];
+
+	for c in E192.iter_mut() {
+		new_elements.push(*c * 10);
+	}
+	E192.append(&mut new_elements);
+
+	let mut combinations: Vec<(f32, f32, f32)> = Vec::new();
+
+	for r1 in &E192 {
+		for r2 in &E192 {
+			let v_out_actual = (*r2 as f32 / (*r1 as f32 + *r2 as f32)) * v_in;
+			if v_out_actual > v_out * 0.99999 && v_out_actual < v_out * 1.0001 {
+				combinations.push((v_out_actual ,*r1 as f32, *r2 as f32));
+			}
+		}
+	}
+
+	if combinations.is_empty() {
+		println!("Нет подходящих комбинаций резисторов.");
+	} else {
+		println!("Подходящие комбинации резисторов:");
+		for (i, (v_out_actual,r1, r2)) in combinations.iter().enumerate() {
+			println!("{}: R1: {:} Ом, R2: {:} Ом, vout = {:.7} В", i + 1, r1, r2, v_out_actual);
+		}
+	}
 }

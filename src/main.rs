@@ -21,13 +21,12 @@ fn main() {
 
     // company();
 
-     let mut vec = vec![355,56,777,2000,357];
-
+    // let mut vec = vec![355,56,777,2000,357];
     // println!("{}", find_average(&vec));
-     println!("{}", find_median(&vec));
+    // println!("{}", find_median(&vec));
     // println!("{}", find_mode_of_list(&vec));
-	vec.sort();
-     println!("{:?}", vec);
+	// vec.sort();
+    // println!("{:?}", vec);
 
-    
+    volt_divider_calc(5.0, 1.2001);
 }
